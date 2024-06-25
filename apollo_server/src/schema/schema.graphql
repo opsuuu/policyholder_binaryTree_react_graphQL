@@ -1,0 +1,17 @@
+type Query {
+  policyholders: [Policyholders]
+  policyholder(userInput: SearchCodeInput!): Policyholders
+}
+
+type Policyholders {
+  code: String!
+  name: String!
+  registration_date: String!
+  introducer_code: String
+  parent: String
+  childs: [String!]!
+}
+
+input SearchCodeInput {
+  code: String!
+}

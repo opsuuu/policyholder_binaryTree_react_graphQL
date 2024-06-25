@@ -1,0 +1,93 @@
+
+.tree-node.left-node::before {
+  /* 左節點的上垂直分支線 */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 20px;
+  border-left: 3px solid #000;
+}
+
+.tree-node.left-node.parent-has-right::after {
+  /* 左節點的水平線，當有右節點時顯示  */
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -20px;
+  width: calc(50% + 20px);
+  height: 3px;
+  background-color: #000;
+}
+
+.tree-node.right-node::before {
+  /* 右節點的上垂直分支線 */
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 50%;
+  width: 0;
+  height: 20px;
+  border-left: 3px solid #000;
+}
+.tree-node.right-node::after {
+  /* 右節點的水平線 */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -20px;
+  width: calc(50% + 20px);
+  height: 3px;
+  background-color: #000;
+}
+
+.node-children::after {
+  /* 主節點延伸到左右子節點的主垂直線 */
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  width: 0;
+  height: 20px;
+  border-left: 3px solid #000;
+  display: none; /* 默認隱藏 */
+}
+
+.tree-node .node-children:not(:empty)::after {
+  display: block; /* 只有當有子節點時顯示 */
+}
+
+.previous-level-btn {
+  background: rgb(6, 14, 131);
+  background: linear-gradient(
+    0deg,
+    rgba(6, 14, 131, 1) 0%,
+    rgba(12, 25, 180, 1) 100%
+  );
+  border: none;
+  width: 150px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow:
+    inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+    4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  outline: none;
+  align-self: flex-start;
+  &:hover {
+    background: rgb(0, 3, 255);
+    background: linear-gradient(
+      0deg,
+      rgba(0, 3, 255, 1) 0%,
+      rgba(2, 126, 251, 1) 100%
+    );
+  }
+}

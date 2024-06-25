@@ -1,0 +1,73 @@
+{
+  "name": "policyholder",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@apollo/client": "^3.10.5",
+    "@graphql-codegen/typescript-react-apollo": "^4.3.0",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "antd": "^5.18.3",
+    "autoprefixer": "^10.4.19",
+    "eslint-plugin-react-compiler": "^0.0.0-experimental-c8b3f72-20240517",
+    "graphql": "^16.8.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.2.1",
+    "typescript": "^5.4.5",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "Vite preview",
+    "codegen": "graphql-codegen --config codegen.ts",
+    "commit": "git-cz"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.2",
+    "@graphql-codegen/typescript": "^4.0.7",
+    "@graphql-codegen/typescript-resolvers": "^4.1.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "postcss-import": "^16.1.0",
+    "prettier": "^3.3.2",
+    "prettier-plugin-tailwindcss": "^0.6.5",
+    "sass": "^1.77.6",
+    "tailwindcss": "^3.4.4",
+    "vite": "^5.3.1"
+  },
+  "description": "## 簡介 這個項目是一個保戶介紹關係系統，使用 React 和 Mockoon 來模擬 API 數據。          並使用二元樹的架構完成關係圖呈現。",
+  "main": "eslint.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}

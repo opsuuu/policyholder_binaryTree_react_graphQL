@@ -1,0 +1,9 @@
+fragment policyholdersDetails on Policyholders {
+  code
+  name
+  registration_date
+  introducer_code
+  parent
+  childs
+}
+

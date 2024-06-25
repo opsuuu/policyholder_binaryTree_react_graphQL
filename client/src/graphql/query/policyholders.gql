@@ -1,0 +1,10 @@
+query GetPolicyholders {
+  policyholders {
+    code
+    name
+    registration_date
+    introducer_code
+    parent
+    childs
+  }
+}
