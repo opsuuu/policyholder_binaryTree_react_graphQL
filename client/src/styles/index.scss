@@ -1,6 +1,11 @@
 @import "./components/treeNode.scss";
 
-.submitBtn {
-    box-shadow: 2px 2px #3e6499;
-    transition: all 0.3s ease;
-  }
+
+.ant-card .ant-card-head {
+  min-height: 0;
+  border-bottom: none;
+}
+
+.ant-card .ant-card-body {
+  padding: 10px;
+}

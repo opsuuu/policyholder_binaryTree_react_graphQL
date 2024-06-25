@@ -12,8 +12,8 @@ const Home = (props: HomeProps) => {
 
   return (
     <div className="container mx-auto">
-      <header className="pt-8 px-5 pb-2.5 text-3xl font-medium flex items-center  gap-2.5  border-slate-700">
-        <FaUsers /> 保戶關係查詢
+      <header className="pt-8 px-5 text-3xl font-medium flex items-center  gap-2.5  border-slate-700">
+        <FaUsers /> 保戶關係查詢系統
       </header>
       <SearchBar />
       <BinaryTree />

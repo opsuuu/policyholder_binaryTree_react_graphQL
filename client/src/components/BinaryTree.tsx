@@ -3,19 +3,27 @@ import { RiFlowChart } from "react-icons/ri";
 import TreeNode from "./TreeNode";
 import { usePolicyholder } from "../hooks/usePolicyholder.hook";
 import { useGetPolicyholdersQuery } from "../graphql/types/generate";
-
 import AntdTable from "./Table";
+import { TinyColor } from "@ctrl/tinycolor";
+import { Button, ConfigProvider, Space } from "antd";
+
+const colors = ["#6253E1", "#04BEFE"];
+const getHoverColors = (colors: string[]) =>
+  colors.map((color) => new TinyColor(color).lighten(5).toString());
+const getActiveColors = (colors: string[]) =>
+  colors.map((color) => new TinyColor(color).darken(5).toString());
 
 const BinaryTree: React.FC = () => {
   const { policyholder, handleParentAsRoot } = usePolicyholder();
   const { loading, error } = useGetPolicyholdersQuery();
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
   return (
     <main>
-      <div className="text-xl font-medium flex items-center gap-1.5">
-        <RiFlowChart /> 關係圖
+      <div className="text-3xl font-medium flex items-center gap-1.5 bg-teal-600 py-5 px-5 mb-8">
+        <RiFlowChart /> 介紹關係圖
       </div>
       <div className="flex justify-start items-center overflow-x-auto">
         <div className="inline-block">
@@ -34,13 +42,29 @@ const BinaryTree: React.FC = () => {
         </div>
 
         {policyholder && policyholder.parent !== null && (
-          <button className="previous-level-btn" onClick={handleParentAsRoot}>
-            <span>上一層</span>
-          </button>
+          // <button className="previous-level-btn" onClick={handleParentAsRoot}>
+          //   <span>上一層</span>
+          // </button>
+          <Space>
+            <ConfigProvider
+              theme={{
+                components: {
+                  Button: {
+                    colorPrimary: `linear-gradient(135deg, ${colors.join(", ")})`,
+                    colorPrimaryHover: `linear-gradient(135deg, ${getHoverColors(colors).join(", ")})`,
+                    colorPrimaryActive: `linear-gradient(135deg, ${getHoverColors(colors).join(", ")})`,
+                    lineWidth:0,
+                  },
+                },
+              }}
+            >
+              <Button type="primary" size="large" onClick={handleParentAsRoot}>上一層</Button>
+            </ConfigProvider>
+          </Space>
         )}
       </div>
       <div className="mt-5">
-        <div className="mb-3  text-3xl font-medium flex items-center  gap-2.5">
+        <div className="mb-5 text-3xl font-medium flex items-center  gap-2.5">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

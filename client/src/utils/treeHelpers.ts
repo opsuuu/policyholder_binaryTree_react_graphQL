@@ -1,6 +1,7 @@
 import { Policyholders } from "@/graphql/types/generate";
 import { TreeNode } from "@/types/common";
 
+
 export function getNode(nodes: Policyholders[], code: string) {
   return nodes.find((n) => n.code === code);
 }
@@ -8,15 +9,15 @@ export function getNode(nodes: Policyholders[], code: string) {
 export function buildTree(
   nodes: Policyholders[],
   targetCode: string
-): TreeNode {
+): TreeNode|null{
   const node = getNode(nodes, targetCode);
-  if (!node) return {} as TreeNode;
+  if (!node) return null;
 
-  const left: TreeNode[] =
+  const left =
     node.childs && node.childs.length > 0 && node.childs[0]
       ? [buildTree(nodes, node.childs[0])]
       : [];
-  const right: TreeNode[] =
+  const right =
     node.childs && node.childs.length > 1 && node.childs[1]
       ? [buildTree(nodes, node.childs[1])]
       : [];
@@ -27,7 +28,7 @@ export function buildTree(
     registration_date: node.registration_date,
     introducer_code: node.introducer_code,
     parent: node.parent,
-    children: node.childs,
+    childs: node.childs,
     left,
     right,
   };
